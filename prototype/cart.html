@@ -1,0 +1,39 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="px-4 py-5">
+      <div class="container">
+        <h2 class="text-center display-5 fw-normal">Shopping Cart</h2>
+        <div class="d-flex justify-content-between align-items-center mt-4">
+          <h4 class="">Your cart</h4>
+          <p class="">Continue Shopping</p>
+        </div>
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th class="product-thumbnail">Image</th>
+              <th class="product-quantity">Quantity</th>
+              <th class="product-remove">Remove</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr th:each="orderItem : ${orderItems}">
+              <td class="product-thumbnail">
+                <div class="card text-white" th:style="'background: center url('+ @{/images/{id}/product(id=*{product.id})} +');'"></div>
+              </td>
+              <td class="product-quantity" th:text="${orderItems.quantity}"></td>
+              <td><a href="#" class="btn btn-black btn-sm">Remove</a></td>
+            </tr>
+          </tbody>
+          </table>
+      </div>
+    </main>
+    <footer></footer>
+  </body>
+</html>
